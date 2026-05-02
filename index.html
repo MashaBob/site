@@ -22,8 +22,28 @@ body {
 /* ЛЕВАЯ ЧАСТЬ */
 .left {
   width:45%;
+} 
+.sphere {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  animation: rotate 40s linear infinite;
 }
 
+.city {
+  position: absolute;
+  color: #00ffc8;
+  font-size: 12px;
+  background: rgba(0,255,200,0.1);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 h1 {
   font-size:60px;
   margin:10px 0;
@@ -195,18 +215,16 @@ h1 {
 
 <div class="right">
 
-  <div class="sphere" id="sphere"></div>
+<div class="sphere" id="sphere">
 
-  <!-- ГОРОДА -->
-  <div class="city" style="top:20%; left:70%;">New York +0.32%</div>
-  <div class="city" style="top:15%; left:55%;">London +0.45%</div>
-  <div class="city" style="top:25%; left:85%;">Tokyo +0.67%</div>
-  <div class="city" style="top:45%; left:60%;">São Paulo +0.21%</div>
-  <div class="city" style="top:35%; left:90%;">Singapore +0.38%</div>
+  <div class="city" style="top:20%; left:70%">New York +0.32%</div>
+  <div class="city" style="top:15%; left:55%">London +0.45%</div>
+  <div class="city" style="top:25%; left:65%">Tokyo +0.67%</div>
+  <div class="city" style="top:45%; left:60%">São Paulo +0.21%</div>
+  <div class="city" style="top:35%; left:90%">Singapore +0.38%</div>
 
-  <div class="chart">
-<div id="tv_chart" style="height:300px;"></div>
-
+</div>
+ 
 <script src="https://s3.tradingview.com/tv.js"></script>
 
 <script>
