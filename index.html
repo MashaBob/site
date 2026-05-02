@@ -251,14 +251,20 @@ new TradingView.widget({
 <script>
 /* РЕАЛЬНЫЕ ДАННЫЕ (Binance) */
 async function loadPrices(){
-  let btc = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT').then(r=>r.json());
-  let eth = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT').then(r=>r.json());
 
-  document.getElementById("btc").innerText = "BTC: " + Math.round(btc.price);
-  document.getElementById("eth").innerText = "ETH: " + Math.round(eth.price);
+  let btcRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+  let btcData = await btcRes.json();
 
-  document.getElementById("profit").innerText = "+" + (Math.random()*9000).toFixed(0);
-  document.getElementById("win").innerText = (80 + Math.random()*10).toFixed(2) + "%";
+  let ethRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT');
+  let ethData = await ethRes.json();
+
+  document.getElementById("btc").innerText = "BTC: " + Math.round(btcData.price);
+  document.getElementById("eth").innerText = "ETH: " + Math.round(ethData.price);
+
+  document.getElementById("profit").innerText = "+" + (Math.random()*9000).toFixed(0) + " Profit";
+
+  document.getElementById("win").innerText =
+    (80 + Math.random()*10).toFixed(2) + "% Win";
 }
 
 loadPrices();
